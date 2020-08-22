@@ -1,0 +1,12 @@
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\bin\Debug\netcoreapp3.1\BVMinh.EmailService.Common.deps.json
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\bin\Debug\netcoreapp3.1\BVMinh.EmailService.Common.dll
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Common.csprojAssemblyReference.cache
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Common.AssemblyInfoInputs.cache
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Common.AssemblyInfo.cs
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\bin\Debug\netcoreapp3.1\BVMinh.EmailService.Common.pdb
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Common.csproj.CoreCompileInputs.cache
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Common.dll
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Common.pdb
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\bin\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.dll
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\bin\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.pdb
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Common\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Common.csproj.CopyComplete

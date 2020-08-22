@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "BVMinh.EmailService.Rescheduler": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "ouwJ8bIJ4YFlb8nIQp1RY2oMJGuGWLYrf9zgtM2tk0Fl12tFnnT96788wFatMc22ycOVaTmGZEyk1jYIuXhnng==",
+  "success": true,
+  "projectFilePath": "E:\\EmailService\\BVMinh.EmailService\\BVMinh.EmailService.Common\\BVMinh.EmailService.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\buiva\\.nuget\\packages\\confluent.kafka\\1.5.0\\confluent.kafka.1.5.0.nupkg.sha512",
+    "C:\\Users\\buiva\\.nuget\\packages\\librdkafka.redist\\1.5.0\\librdkafka.redist.1.5.0.nupkg.sha512",
+    "C:\\Users\\buiva\\.nuget\\packages\\mongodb.bson\\2.11.0\\mongodb.bson.2.11.0.nupkg.sha512",
+    "C:\\Users\\buiva\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

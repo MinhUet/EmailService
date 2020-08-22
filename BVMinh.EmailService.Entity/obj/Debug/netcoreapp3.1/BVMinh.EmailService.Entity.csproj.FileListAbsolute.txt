@@ -1,0 +1,9 @@
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Entity\bin\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.deps.json
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Entity\bin\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.dll
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Entity\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.csprojAssemblyReference.cache
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Entity\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.AssemblyInfoInputs.cache
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Entity\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.AssemblyInfo.cs
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Entity\bin\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.pdb
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Entity\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.csproj.CoreCompileInputs.cache
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Entity\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.dll
+E:\EmailService\BVMinh.EmailService\BVMinh.EmailService.Entity\obj\Debug\netcoreapp3.1\BVMinh.EmailService.Entity.pdb
