@@ -2,11 +2,11 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Confluent.Kafka/1.5.0": {
+      "Confluent.Kafka/1.4.4": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.0",
-          "librdkafka.redist": "1.5.0"
+          "librdkafka.redist": "1.4.4"
         },
         "compile": {
           "lib/netcoreapp2.1/Confluent.Kafka.dll": {}
@@ -15,7 +15,7 @@
           "lib/netcoreapp2.1/Confluent.Kafka.dll": {}
         }
       },
-      "librdkafka.redist/1.5.0": {
+      "librdkafka.redist/1.4.4": {
         "type": "package",
         "build": {
           "build/_._": {}
@@ -125,14 +125,14 @@
     }
   },
   "libraries": {
-    "Confluent.Kafka/1.5.0": {
-      "sha512": "ltuOkRPcNy0N/ZIYFOr/RWFSmr3dZLd0qavQN2Tj1k1K7Ts31jobNuZzc4F1cwZeCmS7zuOKmXpIpu+LH0w9PQ==",
+    "Confluent.Kafka/1.4.4": {
+      "sha512": "yteJzRwmhO1rzuOWduSpG5MokQDV9751ztZyF0DW/TCv5ZDVFxvcESqXlLCjctJEB+vKRvsuLVQWPEqQmfhRsw==",
       "type": "package",
-      "path": "confluent.kafka/1.5.0",
+      "path": "confluent.kafka/1.4.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "confluent.kafka.1.5.0.nupkg.sha512",
+        "confluent.kafka.1.4.4.nupkg.sha512",
         "confluent.kafka.nuspec",
         "lib/net45/Confluent.Kafka.dll",
         "lib/net45/Confluent.Kafka.xml",
@@ -146,10 +146,10 @@
         "lib/netstandard2.0/Confluent.Kafka.xml"
       ]
     },
-    "librdkafka.redist/1.5.0": {
-      "sha512": "27vxPMQ8qnzadF+IoMIQ3LcMAh/JwtE3uNFFOZaW4RCD+JV6KETwWYROMCth1pResxcvVtSyU/GdHI+M9t3C5g==",
+    "librdkafka.redist/1.4.4": {
+      "sha512": "VzrPQcb85ZlmemFYcHWDvlGZttMyyH1SOhbELI23WxLV68szwC/DX22FTu/gv3Ikh/JaHaZ0Zo889kUoFjdyLA==",
       "type": "package",
-      "path": "librdkafka.redist/1.5.0",
+      "path": "librdkafka.redist/1.4.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -165,7 +165,7 @@
         "build/native/lib/win/x86/win-x86-Release/v120/librdkafka.lib",
         "build/native/lib/win/x86/win-x86-Release/v120/librdkafkacpp.lib",
         "build/native/librdkafka.redist.targets",
-        "librdkafka.redist.1.5.0.nupkg.sha512",
+        "librdkafka.redist.1.4.4.nupkg.sha512",
         "librdkafka.redist.nuspec",
         "runtimes/linux-x64/native/alpine-librdkafka.so",
         "runtimes/linux-x64/native/centos7-librdkafka.so",
@@ -253,7 +253,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "BVMinh.EmailService.Entity >= 1.0.0",
-      "Confluent.Kafka >= 1.5.0"
+      "Confluent.Kafka >= 1.4.4"
     ]
   },
   "packageFolders": {
@@ -299,7 +299,7 @@
         "dependencies": {
           "Confluent.Kafka": {
             "target": "Package",
-            "version": "[1.5.0, )"
+            "version": "[1.4.4, )"
           }
         },
         "imports": [

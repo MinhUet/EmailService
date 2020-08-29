@@ -57,7 +57,7 @@ namespace BVMinh.EmailService.API.Controllers
                 {
                     return BadRequest(_emailLogic._messageSendMailFail);
                 }
-                emailDTO.EmailID = ObjectId.GenerateNewId().ToString();
+                emailDTO.EmailID = Guid.NewGuid().ToString();
                 emailDTO.CreatedDate = DateTime.Now;
                 emailDTO.CreatedBy = emailDTO.EmailSenderName;
                 emailDTO.EmailSenderAddress = emailDTO.EmailSenderAddress ?? _applicationCode.EmailSenderAddress;

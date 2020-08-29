@@ -9,25 +9,25 @@
       "BVMinh.EmailService.Common/1.0.0": {
         "dependencies": {
           "BVMinh.EmailService.Entity": "1.0.0",
-          "Confluent.Kafka": "1.5.0"
+          "Confluent.Kafka": "1.4.4"
         },
         "runtime": {
           "BVMinh.EmailService.Common.dll": {}
         }
       },
-      "Confluent.Kafka/1.5.0": {
+      "Confluent.Kafka/1.4.4": {
         "dependencies": {
           "System.Memory": "4.5.0",
-          "librdkafka.redist": "1.5.0"
+          "librdkafka.redist": "1.4.4"
         },
         "runtime": {
           "lib/netcoreapp2.1/Confluent.Kafka.dll": {
-            "assemblyVersion": "1.5.0.0",
-            "fileVersion": "1.5.0.0"
+            "assemblyVersion": "1.4.4.0",
+            "fileVersion": "1.4.4.0"
           }
         }
       },
-      "librdkafka.redist/1.5.0": {
+      "librdkafka.redist/1.4.4": {
         "runtimeTargets": {
           "runtimes/linux-x64/native/alpine-librdkafka.so": {
             "rid": "linux-x64",
@@ -141,19 +141,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Confluent.Kafka/1.5.0": {
+    "Confluent.Kafka/1.4.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ltuOkRPcNy0N/ZIYFOr/RWFSmr3dZLd0qavQN2Tj1k1K7Ts31jobNuZzc4F1cwZeCmS7zuOKmXpIpu+LH0w9PQ==",
-      "path": "confluent.kafka/1.5.0",
-      "hashPath": "confluent.kafka.1.5.0.nupkg.sha512"
+      "sha512": "sha512-yteJzRwmhO1rzuOWduSpG5MokQDV9751ztZyF0DW/TCv5ZDVFxvcESqXlLCjctJEB+vKRvsuLVQWPEqQmfhRsw==",
+      "path": "confluent.kafka/1.4.4",
+      "hashPath": "confluent.kafka.1.4.4.nupkg.sha512"
     },
-    "librdkafka.redist/1.5.0": {
+    "librdkafka.redist/1.4.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-27vxPMQ8qnzadF+IoMIQ3LcMAh/JwtE3uNFFOZaW4RCD+JV6KETwWYROMCth1pResxcvVtSyU/GdHI+M9t3C5g==",
-      "path": "librdkafka.redist/1.5.0",
-      "hashPath": "librdkafka.redist.1.5.0.nupkg.sha512"
+      "sha512": "sha512-VzrPQcb85ZlmemFYcHWDvlGZttMyyH1SOhbELI23WxLV68szwC/DX22FTu/gv3Ikh/JaHaZ0Zo889kUoFjdyLA==",
+      "path": "librdkafka.redist/1.4.4",
+      "hashPath": "librdkafka.redist.1.4.4.nupkg.sha512"
     },
     "MongoDB.Bson/2.11.0": {
       "type": "package",

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "QmJq9CEAym++TH8KDSBNCUx+6L4ppJFyLHgdzKt5Y115V+b+4HOnzL1dMQyJxM0zevoC8b7FallTfXwCB70LTg==",
+  "dgSpecHash": "tmtqlJoQNIPLPBJKRNmR7JDh51mUPcT73AfzzVYbi6J13fJy9JvqnkwEkXVO3/eLKGGWv658bb71ZwJ+2DJSAQ==",
   "success": true,
   "projectFilePath": "E:\\EmailService\\BVMinh.EmailService\\BVMinh.EmailService.DL\\BVMinh.EmailService.DL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\buiva\\.nuget\\packages\\confluent.kafka\\1.5.0\\confluent.kafka.1.5.0.nupkg.sha512",
+    "C:\\Users\\buiva\\.nuget\\packages\\confluent.kafka\\1.4.4\\confluent.kafka.1.4.4.nupkg.sha512",
     "C:\\Users\\buiva\\.nuget\\packages\\dnsclient\\1.3.1\\dnsclient.1.3.1.nupkg.sha512",
-    "C:\\Users\\buiva\\.nuget\\packages\\librdkafka.redist\\1.5.0\\librdkafka.redist.1.5.0.nupkg.sha512",
+    "C:\\Users\\buiva\\.nuget\\packages\\librdkafka.redist\\1.4.4\\librdkafka.redist.1.4.4.nupkg.sha512",
     "C:\\Users\\buiva\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\buiva\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\buiva\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",

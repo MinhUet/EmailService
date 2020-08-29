@@ -93,36 +93,37 @@ namespace BVMinh.EmailService.Scheduler
 
                                         foreach (var emailPacket in EmailSendIntoKafkas)
                                         {
-                                            if (emailPacket.IsMerge)
-                                            {
-                                                var listRecipientSendMailFail = await _emailSender.SendMailMerge(emailPacket);
-                                                if (listRecipientSendMailFail.Count() == 0)
-                                                {
-                                                    SaveSendMailSuccess(emailPacket);
-                                                }
-                                                else
-                                                {
-                                                    foreach (var recipientSendMailFail in listRecipientSendMailFail)
-                                                    {
-                                                        emailPacket.Recipients.Remove(recipientSendMailFail);
-                                                    }
-                                                    SaveSendMailSuccess(emailPacket);
-                                                    
-                                                    emailPacket.Recipients = listRecipientSendMailFail;
-                                                    SendMsgIntoKafka(emailPacket);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                if (await _emailSender.SendMailNoMerge(emailPacket))
-                                                {
-                                                    SaveSendMailSuccess(emailPacket);
-                                                }
-                                                else
-                                                {
-                                                    SendMsgIntoKafka(emailPacket);
-                                                }
-                                            }
+                                            //if (emailPacket.IsMerge)
+                                            //{
+                                            //    var listRecipientSendMailFail = await _emailSender.SendMailMerge(emailPacket);
+                                            //    if (listRecipientSendMailFail.Count() == 0)
+                                            //    {
+                                            //        SaveSendMailSuccess(emailPacket);
+                                            //    }
+                                            //    else
+                                            //    {
+                                            //        foreach (var recipientSendMailFail in listRecipientSendMailFail)
+                                            //        {
+                                            //            emailPacket.Recipients.Remove(recipientSendMailFail);
+                                            //        }
+                                            //        SaveSendMailSuccess(emailPacket);
+
+                                            //        emailPacket.Recipients = listRecipientSendMailFail;
+                                            //        SendMsgIntoKafka(emailPacket);
+                                            //    }
+                                            //}
+                                            //else
+                                            //{
+                                            //    if (await _emailSender.SendMailNoMerge(emailPacket))
+                                            //    {
+                                            //        SaveSendMailSuccess(emailPacket);
+                                            //    }
+                                            //    else
+                                            //    {
+                                            //        SendMsgIntoKafka(emailPacket);
+                                            //    }
+                                            //}
+                                            SendMsgIntoKafka(emailPacket);
                                         }
                                     }
                                     catch (Exception ex)
