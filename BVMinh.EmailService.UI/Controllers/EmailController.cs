@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BVMinh.EmailService.Common.Redis;
 
 namespace BVMinh.EmailService.API.Controllers
 {
@@ -23,7 +24,7 @@ namespace BVMinh.EmailService.API.Controllers
         private readonly ApplicationRepository _applicationRepository;
         private readonly SchedulerTopicRepository _schedulerRepository;
         private readonly EmailTrackingTopicRepository _emailTrackingTopicRepository;
-        public static List<Application> _applications;
+        //public static List<Application> _applications;
         public EmailController(ProducerConfig producerConfg,
                                EmailLogic emailLogic,
                                IRepository<SchedulerTopic> schedulerRepo,
@@ -52,7 +53,9 @@ namespace BVMinh.EmailService.API.Controllers
                 {
                     return BadRequest(_emailLogic._messageLimitRecipients);
                 }
-                var _applicationCode = _applications.Find(app => app.ApplicationCode == emailDTO.ApplicationCode);
+                
+                //Lay appcode trong redis cache
+                var _applicationCode = GetApplication.GetApp(emailDTO.ApplicationCode);
                 if (_applicationCode == null)
                 {
                     return BadRequest(_emailLogic._messageSendMailFail);

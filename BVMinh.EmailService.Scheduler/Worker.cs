@@ -17,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using BVMinh.EmailService.Common.Redis;
 
 namespace BVMinh.EmailService.Scheduler
 {
@@ -31,7 +32,7 @@ namespace BVMinh.EmailService.Scheduler
         private IEmailSender<OutboxEmailDTO> _emailSender;
         private readonly EmailLogic _emailLogic;
         private List<EmailTopic> _topics;
-        public static List<Application> AppCodes;
+        //public static List<Application> AppCodes;
 
         public Worker(IConfiguration configuration,
             ILogger<Worker> logger,
@@ -78,7 +79,16 @@ namespace BVMinh.EmailService.Scheduler
                                             continue;
                                         }
                                         var messageJObj = JsonConvert.DeserializeObject<OutboxEmailDTO>(message);
-                                        var _application = AppCodes.Find(app => app.ApplicationCode == messageJObj.ApplicationCode);
+                                        var emailID = await GetApplication.GetString(messageJObj.EmailID);
+                                        if (emailID != null)
+                                        {
+                                            _logger.LogWarning("Duplication detected, aborting...");
+                                            continue;
+                                        }
+                                        _logger.LogInformation($"Recieved email {messageJObj.EmailID}, subject {messageJObj.Subject}, {messageJObj.Recipients.Count} recipients");
+
+                                        // Lay Application theo AppCode tu Redis
+                                        var _application = GetApplication.GetApp(messageJObj.ApplicationCode);
 
                                         _emailSender = new EmailSenderSMTP(_configuration, _application.EmailUserName, _application.EmailUserPassword);
 
@@ -93,37 +103,41 @@ namespace BVMinh.EmailService.Scheduler
 
                                         foreach (var emailPacket in EmailSendIntoKafkas)
                                         {
-                                            //if (emailPacket.IsMerge)
-                                            //{
-                                            //    var listRecipientSendMailFail = await _emailSender.SendMailMerge(emailPacket);
-                                            //    if (listRecipientSendMailFail.Count() == 0)
-                                            //    {
-                                            //        SaveSendMailSuccess(emailPacket);
-                                            //    }
-                                            //    else
-                                            //    {
-                                            //        foreach (var recipientSendMailFail in listRecipientSendMailFail)
-                                            //        {
-                                            //            emailPacket.Recipients.Remove(recipientSendMailFail);
-                                            //        }
-                                            //        SaveSendMailSuccess(emailPacket);
+                                            if (emailPacket.IsMerge)
+                                            {
+                                                var listRecipientSendMailFail = await _emailSender.SendMailMerge(emailPacket);
+                                                if (listRecipientSendMailFail.Count() == 0)
+                                                {
+                                                    SaveSendMailSuccess(emailPacket);
+                                                }
+                                                else
+                                                {
+                                                    foreach (var recipientSendMailFail in listRecipientSendMailFail)
+                                                    {
+                                                        emailPacket.Recipients.Remove(recipientSendMailFail);
+                                                    }
+                                                    SaveSendMailSuccess(emailPacket);
 
-                                            //        emailPacket.Recipients = listRecipientSendMailFail;
-                                            //        SendMsgIntoKafka(emailPacket);
-                                            //    }
-                                            //}
-                                            //else
-                                            //{
-                                            //    if (await _emailSender.SendMailNoMerge(emailPacket))
-                                            //    {
-                                            //        SaveSendMailSuccess(emailPacket);
-                                            //    }
-                                            //    else
-                                            //    {
-                                            //        SendMsgIntoKafka(emailPacket);
-                                            //    }
-                                            //}
-                                            SendMsgIntoKafka(emailPacket);
+                                                    emailPacket.Recipients = listRecipientSendMailFail;
+                                                    emailPacket.RetryID = Guid.NewGuid().ToString();
+                                                    emailPacket.EmailID = Guid.NewGuid().ToString();
+                                                    SendMsgIntoKafka(emailPacket);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (await _emailSender.SendMailNoMerge(emailPacket))
+                                                {
+                                                    SaveSendMailSuccess(emailPacket);
+                                                }
+                                                else
+                                                {
+                                                    emailPacket.RetryID = Guid.NewGuid().ToString();
+                                                    emailPacket.EmailID = Guid.NewGuid().ToString();
+                                                    SendMsgIntoKafka(emailPacket);
+                                                }
+                                            }
+                                            //SendMsgIntoKafka(emailPacket);
                                         }
                                     }
                                     catch (Exception ex)

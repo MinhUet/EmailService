@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using BVMinh.EmailService.Common.Redis;
 
 namespace BVMinh.EmailService.Scheduler
 {
@@ -21,16 +22,16 @@ namespace BVMinh.EmailService.Scheduler
         public static void Main(string[] args)
         {
             var builder = CreateHostBuilder(args).Build();
-            var appRepo = (IRepository<Application>)builder.Services.GetService(typeof(IRepository<Application>));
-            Thread t = new Thread(async () =>
-            {
-                while (true)
-                {
-                    await GetApplications(appRepo);
-                    await Task.Delay(1000);
-                }
-            });
-            t.Start();
+            //var appRepo = (IRepository<Application>)builder.Services.GetService(typeof(IRepository<Application>));
+            //Thread t = new Thread(async () =>
+            //{
+            //    while (true)
+            //    {
+            //        await GetApplications(appRepo);
+            //        await Task.Delay(1000);
+            //    }
+            //});
+            //t.Start();
             builder.Run();
         }
 
@@ -59,14 +60,16 @@ namespace BVMinh.EmailService.Scheduler
 					configuration.Bind("Kafka:Producer", producerConfig);
 					services.AddSingleton<ProducerConfig>(producerConfig);
 
-					services.AddSingleton<ServiceProviderResolver>();
+                    GetApplication._connectionString = configuration.GetValue<string>("Redis:ConnectionString");
+
+                    services.AddSingleton<ServiceProviderResolver>();
 					services.AddHostedService<Worker>();
                 });
 
-        private static async Task GetApplications(IRepository<Application> appRepo)
-        {
-            var apps = await appRepo.GetAll();
-            Worker.AppCodes = apps.ToList();
-        }
+        //private static async Task GetApplications(IRepository<Application> appRepo)
+        //{
+        //    var apps = await appRepo.GetAll();
+        //    Worker.AppCodes = apps.ToList();
+        //}
     }
 }

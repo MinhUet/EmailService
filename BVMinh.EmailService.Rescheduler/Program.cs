@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using BVMinh.EmailService.Common.Redis;
+
 
 namespace BVMinh.EmailService.Rescheduler
 {
@@ -42,6 +44,8 @@ namespace BVMinh.EmailService.Rescheduler
 
                     var producerConfig = new ProducerConfig();
                     configuration.Bind("Kafka:Producer", producerConfig);
+
+                    GetApplication._connectionString = configuration.GetValue<string>("Redis:ConnectionString");
 
                     services.AddSingleton<ConsumerConfig>(consumerConfig);
                     services.AddSingleton<ProducerConfig>(producerConfig);

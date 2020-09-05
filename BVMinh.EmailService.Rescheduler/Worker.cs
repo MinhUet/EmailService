@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using BVMinh.EmailService.Common.Redis;
 
 namespace BVMinh.EmailService.Rescheduler
 {
@@ -54,7 +55,7 @@ namespace BVMinh.EmailService.Rescheduler
                     _consumerConfig.GroupId = _sendMailRetry;
                     using (var _consumer = new ConsumerWrapper<Null, string>(_consumerConfig, _sendMailRetry))
                     {
-                        while (true)
+                        while (true) 
                         {
                             try
                             {
@@ -62,11 +63,17 @@ namespace BVMinh.EmailService.Rescheduler
                                 if (message != null)
                                 {
                                     var messageJObj = JsonConvert.DeserializeObject<OutboxEmailDTO>(message);
+                                    var retryID = await GetApplication.GetString(messageJObj.RetryID);
+                                    if (retryID != null)
+                                    {
+                                        continue;
+                                    }
                                     var nametopic = (messageJObj.IsShare == true) ? _shareTopic : messageJObj.ApplicationCode.Trim().ToString();
                                     if (messageJObj.RetryTime < _maxRetrySendMailTimes)
                                     {
                                         messageJObj.RetryTime++;
                                         var messageRetry = JsonConvert.SerializeObject(messageJObj);
+                                        await GetApplication.SetString(messageJObj.RetryID, messageJObj.RetryID, null);
                                         using (var producer = new ProducerWrapper<Null, string>(_producerConfig, nametopic))
                                         {
                                             await producer.SendMessage(messageRetry);

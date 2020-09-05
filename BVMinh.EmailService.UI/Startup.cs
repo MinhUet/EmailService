@@ -18,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using BVMinh.EmailService.Common.Redis;
 
 namespace BVMinh.EmailService.UI
 {
@@ -48,6 +49,8 @@ namespace BVMinh.EmailService.UI
             Configuration.Bind("Kafka:Producer", producerConfig);
             services.AddSingleton<ProducerConfig>(producerConfig);
 
+            GetApplication._connectionString = Configuration.GetValue<string>("Redis:ConnectionString");
+
             services.AddSingleton<EmailLogic>();
             services.AddScoped<IRepository<EmailTopic>, EmailTopicRepository>();
             services.AddScoped<IRepository<Application>, ApplicationRepository>();
@@ -75,15 +78,15 @@ namespace BVMinh.EmailService.UI
 
             app.UseRouting();
 
-            var appRepo = (IRepository<Application>)serviceProvider.GetService(typeof(IRepository<Application>));
-            Thread t = new Thread(async () => {
-                while (true)
-                {
-                    await GetApplications(appRepo);
-                    await Task.Delay(1000);
-                }
-            });
-            t.Start();
+            //var appRepo = (IRepository<Application>)serviceProvider.GetService(typeof(IRepository<Application>));
+            //Thread t = new Thread(async () => {
+            //    while (true)
+            //    {
+            //        await GetApplications(appRepo);
+            //        await Task.Delay(1000);
+            //    }
+            //});
+            //t.Start();
 
             app.UseAuthorization();
 
@@ -95,10 +98,10 @@ namespace BVMinh.EmailService.UI
             });
         }
 
-        private async Task GetApplications(IRepository<Application> appRepo)
-        {
-            var apps = await appRepo.GetAll();
-            EmailController._applications = apps.ToList();
-        }
+        //private async Task GetApplications(IRepository<Application> appRepo)
+        //{
+        //    var apps = await appRepo.GetAll();
+        //    EmailController._applications = apps.ToList();
+        //}
     }
 }

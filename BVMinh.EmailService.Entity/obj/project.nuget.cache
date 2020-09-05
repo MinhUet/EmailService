@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WLcLEN7bt/kPs/5857FG5LvmARYq8hZfl7mLVj9+U6CsDT+A93flv22GnK4eX7Cp00xeWWqb7xtOcg4m0GoAkA==",
+  "dgSpecHash": "bchZGZpHhBlw5u2Q0d3/y1245eyp9DViMO+naJn1JdjVf04C1Ys6tFCbq6OKwUaS7GCUkCUDvcxYiQICAzSaHw==",
   "success": true,
-  "projectFilePath": "E:\\EmailService\\BVMinh.EmailService\\BVMinh.EmailService.Entity\\BVMinh.EmailService.Entity.csproj",
+  "projectFilePath": "D:\\C#\\Project\\EmailService\\BVMinh.EmailService.Entity\\BVMinh.EmailService.Entity.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\buiva\\.nuget\\packages\\mongodb.bson\\2.11.0\\mongodb.bson.2.11.0.nupkg.sha512"
+    "C:\\Users\\ADMIN\\.nuget\\packages\\mongodb.bson\\2.11.0\\mongodb.bson.2.11.0.nupkg.sha512"
   ],
   "logs": []
 }
