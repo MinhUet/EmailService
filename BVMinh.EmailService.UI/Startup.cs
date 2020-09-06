@@ -19,6 +19,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using BVMinh.EmailService.Common.Redis;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BVMinh.EmailService.UI
 {
@@ -57,6 +59,8 @@ namespace BVMinh.EmailService.UI
             services.AddScoped<IRepository<SchedulerTopic>, SchedulerTopicRepository>();
             services.AddScoped<IRepository<EmailTrackingTopic>, EmailTrackingTopicRepository>();
 
+           
+
             services.AddControllers();
         }
 
@@ -69,7 +73,7 @@ namespace BVMinh.EmailService.UI
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Dashboards/Dashboard_1");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -94,7 +98,7 @@ namespace BVMinh.EmailService.UI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Dashboards}/{action=Dashboard_1}/{id?}");
             });
         }
 
