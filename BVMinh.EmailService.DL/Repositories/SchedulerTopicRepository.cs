@@ -22,7 +22,7 @@ namespace BVMinh.EmailService.DL.Repositories
             builder = Builders<SchedulerTopic>.Filter;
 
             // Lấy các email sắp gửi trong minutes phút tới
-            filter = builder.Gte(x => x.ScheduleTime, DateTime.Now) & builder.Lt(x => x.ScheduleTime, DateTime.Now.AddMinutes(minutes)) & builder.Eq("ProcessingStatus", false);
+            filter = builder.Lt(x => x.ScheduleTime, DateTime.Now.AddMinutes(minutes)) & builder.Eq("ProcessingStatus", false);
 
             List<SchedulerTopic> result = _collection.Find(filter).Limit(limitRecords).ToList();
 
@@ -36,7 +36,7 @@ namespace BVMinh.EmailService.DL.Repositories
             FilterDefinitionBuilder<SchedulerTopic> builder;
             builder = Builders<SchedulerTopic>.Filter;
             // Lấy các email sắp gửi trong minutes phút tới
-            filter = builder.Gte(x => x.ScheduleTime, DateTime.Now) & builder.Lt(x => x.ScheduleTime, DateTime.Now.AddMinutes(minutes)) & builder.Eq("ProcessingStatus", false);
+            filter = builder.Lt(x => x.ScheduleTime, DateTime.Now.AddMinutes(minutes)) & builder.Eq("ProcessingStatus", false);
 
             return _collection.Find(filter).ToList().Count();
         }
